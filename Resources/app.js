@@ -10,8 +10,7 @@ Ti.include('lib/underscore.js');
 			backgroundColor: '#fff'
 		}),
 		socket = Ti.Network.createTCPSocket({
-			// hostName: Titanium.Network.INADDR_ANY,
-			hostName: '111.188.72.197',
+			hostName: 'ec2-175-41-255-195.ap-northeast-1.compute.amazonaws.com',
 			port: 9337, 
 			mode: Titanium.Network.READ_WRITE_MODE
 		}),
