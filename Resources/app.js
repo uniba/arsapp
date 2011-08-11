@@ -9,7 +9,8 @@ Ti.Geolocation.purpose = "GPS demo";
 -function() {
 	var client = Ti.App.createClient(Ti.Platform.id),
 		backgroundService = Ti.App.iOS.registerBackgroundService({
-			url: 'background.js'
+			url: 'background.js',
+			client: client
 		});
 	
 	client.on('hello', function(data) {

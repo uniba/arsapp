@@ -1,5 +1,9 @@
+var client = Ti.App.currentService.client;
+
 -function() {
 	var timer = setInterval(function() {
-		
-	}, 1000);
+		Ti.Geolocation.getCurrentPosition(function(event) {
+			client.send('location', event.coords);
+		});
+	}, 5000);
 }();
