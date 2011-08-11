@@ -1,8 +1,8 @@
-#appname: Ars
-#publisher: seiya
-#url: http://uniba.jp/
-#image: appicon.png
-#appid: jp.uniba.ars
-#desc: undefined
-#type: ipad
-#guid: d2568ba2-f347-4b0e-9400-3ca737a721c7
+#appname:Ars
+#publisher:Uniba Inc.
+#url:http://uniba.jp/
+#image:appicon.png
+#appid:jp.uniba.ios.arsapp
+#desc:not specified
+#type:ipad
+#guid:d2568ba2-f347-4b0e-9400-3ca737a721c7
