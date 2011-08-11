@@ -1,5 +1,6 @@
 Ti.include('lib/underscore.js');
 Ti.include('lib/event_emitter.js');
+Ti.include('config.js');
 Ti.include('client.js');
 
 Ti.Geolocation.preferredProvider = "gps";
@@ -40,7 +41,7 @@ Ti.Geolocation.purpose = "GPS demo";
 		});
 		
 		setTimeout(function() {
-			client.send('bye');
+			// client.send('bye');
 		}, 10000);
 	});
 	

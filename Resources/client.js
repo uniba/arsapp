@@ -11,6 +11,7 @@
 		self.platformId = platformId;
 		self.socket = Ti.Network.createTCPSocket({
 			hostName: 'ec2-175-41-255-195.ap-northeast-1.compute.amazonaws.com',
+			// hostName: 'localhost',
 			port: 9337, 
 			mode: Titanium.Network.READ_WRITE_MODE
 		});
@@ -46,7 +47,7 @@
 			if (self.socket.isValid) {
 				data = data || {};
 				date = new Date();
-				_.extend(data, { timestamp: date.getTime() / 1000 });
+				_.extend(data, { _timestamp: date.getTime() / 1000 });
 				self.socket.write(JSON.stringify({ id: self.clientId , type: type, data: data }));
 			}
 			return self;
