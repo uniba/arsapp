@@ -7,13 +7,13 @@
         <target device="android">true</target>
         <target device="blackberry">false</target>
     </deployment-targets>
-    <id>jp.uniba.ars</id>
+    <id>jp.uniba.ios.arsapp</id>
     <name>Ars</name>
     <version>1.0</version>
-    <publisher>seiya</publisher>
+    <publisher>Uniba Inc.</publisher>
     <url>http://uniba.jp/</url>
     <description>not specified</description>
-    <copyright>2011 by seiya</copyright>
+    <copyright>2011 by Uniba Inc.</copyright>
     <icon>appicon.png</icon>
     <persistent-wifi>false</persistent-wifi>
     <prerendered-icon>false</prerendered-icon>
