@@ -1,3 +1,5 @@
+var app = {};
+
 Ti.include('lib/underscore.js');
 Ti.include('lib/event_emitter.js');
 Ti.include('config.js');
@@ -7,7 +9,7 @@ Ti.Geolocation.preferredProvider = "gps";
 Ti.Geolocation.purpose = "GPS demo";
 
 -function() {
-	var client = Ti.App.createClient(Ti.Platform.id),
+	var client = app.createClient(Ti.Platform.id),
 		backgroundService = Ti.App.iOS.registerBackgroundService({
 			url: 'background.js',
 			client: client
@@ -48,3 +50,5 @@ Ti.Geolocation.purpose = "GPS demo";
 	
 	client.connect();
 }();
+
+Ti.API.log(app);

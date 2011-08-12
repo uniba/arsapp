@@ -1,3 +1,5 @@
+var app = app || {};
+
 -function(exports) {
 
 	function Client(platformId) {
@@ -63,8 +65,14 @@
 	Client.prototype = new EventEmitter();
 	Client.prototype.constructor = Client;
 	
-	Ti.App.createClient = function() {
-		return new Client(Ti.Platform.id);
-	};
+	_.extend(app, {
+		Client: Client
+	});
 	
 }({});
+
+_.extend(app, {
+	createClient: function() {
+		return new app.Client(Ti.Platform.id);
+	}
+});
