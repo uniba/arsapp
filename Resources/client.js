@@ -9,6 +9,7 @@
 		
 		self.clientId = null;
 		self.platformId = platformId;
+		self.retry = true;
 		self.socket = Ti.Network.createTCPSocket({
 			hostName: 'ec2-175-41-255-195.ap-northeast-1.compute.amazonaws.com',
 			// hostName: 'localhost',
@@ -22,7 +23,7 @@
 			-function() {
 				var timer = setInterval(function() {
 					self.send('ping');
-				}, 1000);
+				}, 5000);
 				
 				self.on('bye', function(data) {
 					clearTimeout(timer);
@@ -38,7 +39,7 @@
 		});
 		
 		self.connect = function() {
-			this.socket.connect();
+			self.socket.connect();
 			return self;
 		};
 		
