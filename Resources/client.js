@@ -2,9 +2,9 @@ var app = app || {};
 
 -function(exports) {
 
-	function Client(platformId) {
+	function Client(platformId, hostName) {
 		if (!(this instanceof Client)) {
-			return new Client(platformId);
+			return new Client(platformId, hostName);
 		}
 		var self = this;
 		EventEmitter.call(self);
@@ -13,7 +13,8 @@ var app = app || {};
 		self.platformId = platformId;
 		self.retry = true;
 		self.socket = Ti.Network.createTCPSocket({
-			hostName: 'ec2-175-41-255-195.ap-northeast-1.compute.amazonaws.com',
+			hostName: hostName,
+			// hostName: 'ec2-175-41-255-195.ap-northeast-1.compute.amazonaws.com',
 			// hostName: 'localhost',
 			port: 9337, 
 			mode: Titanium.Network.READ_WRITE_MODE
@@ -36,8 +37,16 @@ var app = app || {};
 		self.socket.addEventListener('read', function(event) {
 			var data = JSON.parse(event.data);
 			Ti.API.log(data);
+			
 			self.clientId = data.id;
 			self.emit(data.type, data.data);
+		});
+		
+		self.socket.addEventListener('writeError', function(event) {
+			Ti.API.log(event);
+			
+			self.socket.close();
+			self.emit('close');
 		});
 		
 		self.connect = function() {
@@ -72,7 +81,7 @@ var app = app || {};
 }({});
 
 _.extend(app, {
-	createClient: function() {
-		return new app.Client(Ti.Platform.id);
+	createClient: function(platformId, hostName) {
+		return new app.Client(platformId, hostName);
 	}
 });
